@@ -70,6 +70,20 @@
         <li><a href="introduction.php">Introduction</a></li>
         <li><a href="gallery.php">Gallery</a></li>
         <li><a href="contact.php">Contact</a></li>
+
+        @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
       </ul>
     </div><!-- Wnavbar-collapse -->
   </div><!-- container-fluid -->
@@ -168,8 +182,6 @@
 
 <!-- custom script -->
 <script src="{{ asset('landingpage/assets/script.js') }}"></script>
-
-
 
 
 
