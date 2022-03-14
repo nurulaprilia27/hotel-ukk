@@ -46,15 +46,15 @@
                         <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="">
+                                    <a class="nav-link me-2" href="{{ route('register') }}">
                                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                         Sign Up
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="">
+                                    <a class="nav-link me-2" href="{{ route('login') }}">
                                         <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                        Register
+                                        Sign In
                                     </a>
                                 </li>
                             </ul>
@@ -78,56 +78,64 @@
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                                        @csrf
                                         <label>name</label>
                                         <div class="mb-3">
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                            <input id="name" type="text"
+                                                class="form-control @error('name') is-invalid @enderror" name="name"
+                                                value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <label>email</label>
                                         <div class="mb-3">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                            <input id="email" type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                            <input id="password" type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" required autocomplete="new-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <label>Confirm Password</label>
                                         <div class="mb-3">
-                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                            <input id="password-confirm" type="password" class="form-control"
+                                                name="password_confirmation" required autocomplete="new-password">
                                         </div>
-                                        <div class="form-check form-switch">
+                                        {{-- <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                                             <label class="form-check-label" for="rememberMe">Remember me</label>
-                                        </div>
+                                        </div> --}}
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Register</button>
+                                            <button type="submit"
+                                                class="btn bg-gradient-info w-100 mt-4 mb-0">Register</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                    <p class="mb-4 text-sm mx-auto">
+                                    {{-- <p class="mb-4 text-sm mx-auto">
                                         Don't have an account?
                                         <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign
                                             up</a>
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </div>
                         </div>

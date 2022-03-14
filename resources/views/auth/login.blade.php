@@ -46,13 +46,13 @@
                         <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="">
+                                    <a class="nav-link me-2" href="{{ route('register') }}">
                                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                         Sign Up
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="">
+                                    <a class="nav-link me-2" href="{{ route('login') }}">
                                         <i class="fas fa-key opacity-6 text-dark me-1"></i>
                                         Sign In
                                     </a>
@@ -103,23 +103,23 @@
                                             </span>
                                             @enderror
                                         </div>
-                                        <div class="form-check form-switch">
+                                        {{-- <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                                             <label class="form-check-label" for="rememberMe">Remember me</label>
-                                        </div>
+                                        </div> --}}
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign
                                                 in</button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                {{-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-4 text-sm mx-auto">
                                         Don't have an account?
                                         <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign
                                             up</a>
                                     </p>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="col-md-6">

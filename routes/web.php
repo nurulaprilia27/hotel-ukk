@@ -20,4 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth', 'CekRole:admin,resepsionis,tamu']], function () {
+    // dashboard
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
