@@ -90,8 +90,15 @@
                                 <i class="fa fa-user me-sm-1"></i>
                                 <span class="d-sm-inline d-none">{{ auth()->user()->name }}</span>
                             </a>
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                                <span class="d-sm-inline d-none">{{ auth()->user()->name }}</span>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                                class="nav-link text-body font-weight-bold px-0">
+                                out >
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                </span>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
