@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FasilitasKamarController;
 
 /*
@@ -14,17 +15,22 @@ use App\Http\Controllers\FasilitasKamarController;
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/home', function () {
     return view('landingpage.pages.home');
 });
-
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
 Auth::routes();
 
 
 Route::group(['middleware' => ['auth', 'CekRole:admin,resepsionis,tamu']], function () {
     // dashboard
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::view('dashboard', 'admin.dashboard')->name('dashboard');
 });
 
+// Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
 Route::get('fasilitas_kamar', [FasilitasKamarController::class, 'index']);
+// });
