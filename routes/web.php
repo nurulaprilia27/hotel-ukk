@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FasilitasKamarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::group(['middleware' => ['auth', 'CekRole:admin,resepsionis,tamu']], funct
     // dashboard
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
+
+Route::get('fasilitas_kamar', [FasilitasKamarController::class, 'index']);
