@@ -13,7 +13,7 @@ class FasilitasKamarController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.fasilitas_kamar.index');
     }
 
     /**
