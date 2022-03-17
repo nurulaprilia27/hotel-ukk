@@ -23,6 +23,7 @@ class FasilitasKamarController extends Controller
      */
     public function create()
     {
+        return view('admin.fasilitas_kamar.create');
         //
     }
 

@@ -33,5 +33,6 @@ Route::group(['middleware' => ['auth', 'CekRole:admin,resepsionis,tamu']], funct
 
 Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
     Route::get('fasilitas_kamar', [FasilitasKamarController::class, 'index'])->name('fasilitas_kamar.index');
+    Route::get('fasilitas_kamar/create', [FasilitasKamarController::class, 'create'])->name('fasilitas_kamar.create');
     Route::post('fasilitas_kamar', [FasilitasKamarController::class, 'store'])->name('fasilitas_kamar.store');
 });
