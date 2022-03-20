@@ -46,6 +46,7 @@
                             <div class="col-xs-6">
                                 <select class="form-control">
                                     <option>No. of Rooms</option>
+                                    <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>
@@ -55,6 +56,7 @@
                             <div class="col-xs-6">
                                 <select class="form-control">
                                     <option>No. of Adult</option>
+                                    <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>

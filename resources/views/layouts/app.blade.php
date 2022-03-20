@@ -9,6 +9,7 @@
     <title>
         Hotel
     </title>
+    @include('sweetalert::alert')
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -31,6 +32,16 @@
         <!-- End Navbar -->
         @yield('content')
     </main>
+
+    {{-- notif --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        if (Session::has('success')) {
+            toastr.success('Berhasil!', {{ Session::get('success')}})
+        } else {
+            
+        }
+    </script>
     <!--   Core JS Files   -->
     <script src="{{ asset('admin/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/core/bootstrap.min.js') }}"></script>

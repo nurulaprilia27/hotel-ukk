@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FasilitasKamar extends Model
 {
     use HasFactory;
+
+    // protected $fillable = ['nama_tipe']; // ini kaya field yang boleh di input user
+    protected $guarded = ['id']; // ini sebaliknya field yang engga boleh di input user
 }

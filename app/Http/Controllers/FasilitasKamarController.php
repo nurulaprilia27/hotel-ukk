@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FasilitasKamar;
 use Illuminate\Http\Request;
+// use RealRashid\SweetAlert\Facades\Alert;
+use Alert;
 
 class FasilitasKamarController extends Controller
 {
@@ -13,7 +16,9 @@ class FasilitasKamarController extends Controller
      */
     public function index()
     {
-        return view('admin.fasilitas_kamar.index');
+        return view('admin.fasilitas_kamar.index', [
+            'data' => FasilitasKamar::get(),
+        ]);
     }
 
     /**
@@ -23,7 +28,9 @@ class FasilitasKamarController extends Controller
      */
     public function create()
     {
-        return view('admin.fasilitas_kamar.create');
+        return view('admin.fasilitas_kamar.form', [
+            'data' => null
+        ]);
         //
     }
 
@@ -35,7 +42,20 @@ class FasilitasKamarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $validated = $request->validate([
+            'nama_fasilitas' => 'required',
+        ]);
+
+        $data = new FasilitasKamar();
+        $data->nama_fasilitas = $validated['nama_fasilitas'];
+        $data->save();
+
+        return redirect()->route('fasilitas_kamar.index')->with('success', 'data berhasil ditambah');
+
+        // dd($validated['nama_fasilitas']);
+
+
     }
 
     /**
@@ -57,7 +77,17 @@ class FasilitasKamarController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.fasilitas_kamar.form', [
+            'data' => FasilitasKamar::find($id),
+        ]);
+
+        // $data ? 'ini ada data' : 'in emggal'
+        // if ($data) {
+        //     'ini ada';
+        // } else {
+        //     'ini enggak';
+        // }
+        
     }
 
     /**
@@ -69,7 +99,18 @@ class FasilitasKamarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $validated = $request->validate([
+            'nama_fasilitas' => 'required',
+        ]);
+
+        $data = FasilitasKamar::find($id);
+        $data->nama_fasilitas = $validated['nama_fasilitas'];
+        $data->update();
+        
+        // Alert::success('Berhasil!', 'Data berhasil di simpan');
+
+        return redirect()->route('fasilitas_kamar.index')->with('success', 'data berhasil diupdate');
     }
 
     /**
@@ -78,8 +119,11 @@ class FasilitasKamarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $data = FasilitasKamar::find($id);
+        $data->delete();
+
+        return redirect()->route('fasilitas_kamar.index')->with('success', 'data berhasil dihapus');
     }
 }

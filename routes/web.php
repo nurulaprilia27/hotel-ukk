@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FasilitasHotelController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FasilitasKamarController;
@@ -35,4 +36,9 @@ Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
     Route::get('fasilitas_kamar', [FasilitasKamarController::class, 'index'])->name('fasilitas_kamar.index');
     Route::get('fasilitas_kamar/create', [FasilitasKamarController::class, 'create'])->name('fasilitas_kamar.create');
     Route::post('fasilitas_kamar', [FasilitasKamarController::class, 'store'])->name('fasilitas_kamar.store');
+    Route::get('fasilitas_kamar/{id}', [FasilitasKamarController::class, 'edit'])->name('fasilitas_kamar.edit');
+    Route::put('fasilitas_kamar/{id}', [FasilitasKamarController::class, 'update'])->name('fasilitas_kamar.update');
+    Route::delete('fasilitas_kamar/{id}', [FasilitasKamarController::class, 'delete'])->name('fasilitas_kamar.delete');
+
+    Route::resource('fasilitas_hotel', FasilitasHotelController::class);
 });
