@@ -9,7 +9,7 @@
                     <hr>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
-                    <form action="{{ $data ? route('fasilitas_kamar.update', $data->id) : route('fasilitas_kamar.store') }}" method="post">
+                    <form action="{{ $data ? route('fasilitas_hotel.update', $data->id) : route('fasilitas_hotel.store') }}" method="post">
                         @csrf
                         @method($data ? 'put' : 'post')
                         <div class="row p-4">

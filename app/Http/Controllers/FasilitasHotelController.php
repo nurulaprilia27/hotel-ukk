@@ -44,7 +44,7 @@ class FasilitasHotelController extends Controller
         ]);
 
         $data = new FasilitasHotel();
-        $data->nama_fasilitas = $validated['nama_fasilitas'];
+        $data->nama_fasilitas_hotel = $validated['nama_fasilitas'];
         $data->save();
 
         return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil ditambah');
