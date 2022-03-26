@@ -41,4 +41,5 @@ Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
     Route::delete('fasilitas_kamar/{id}', [FasilitasKamarController::class, 'delete'])->name('fasilitas_kamar.delete');
 
     Route::resource('fasilitas_hotel', FasilitasHotelController::class);
+
 });

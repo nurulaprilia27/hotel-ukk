@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FasilitasKamar;
 use Illuminate\Http\Request;
 // use RealRashid\SweetAlert\Facades\Alert;
-use Alert;
+use SweetAlert;
 
 class FasilitasKamarController extends Controller
 {
@@ -81,7 +81,7 @@ class FasilitasKamarController extends Controller
             'data' => FasilitasKamar::find($id),
         ]);
 
-        // $data ? 'ini ada data' : 'in emggal'
+        // $data ? 'ini ada data' : 'ini enggak'
         // if ($data) {
         //     'ini ada';
         // } else {

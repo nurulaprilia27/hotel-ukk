@@ -28,7 +28,7 @@
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
                         class="nav-link text-body font-weight-bold px-0">
-                        out >
+                        Logout
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

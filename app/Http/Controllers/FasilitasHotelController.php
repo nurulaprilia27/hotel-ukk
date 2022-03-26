@@ -25,9 +25,11 @@ class FasilitasHotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
-    }
+    { {
+            return view('admin.fasilitas_hotel.form', [
+                'data' => null
+            ]);
+    } }
 
     /**
      * Store a newly created resource in storage.
@@ -37,7 +39,15 @@ class FasilitasHotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_fasilitas' => 'required',
+        ]);
+
+        $data = new FasilitasHotel();
+        $data->nama_fasilitas = $validated['nama_fasilitas'];
+        $data->save();
+
+        return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil ditambah');
     }
 
     /**
@@ -59,7 +69,9 @@ class FasilitasHotelController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.fasilitas_hotel.form', [
+            'data' => FasilitasHotel::find($id),
+        ]);
     }
 
     /**
@@ -71,7 +83,16 @@ class FasilitasHotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'nama_fasilitas' => 'required',
+        ]); 
+        $data = FasilitasHotel::find($id);
+        $data->nama_fasilitas = $validated['nama_fasilitas'];
+        $data->update();
+
+        // Alert::success('Berhasil!', 'Data berhasil di simpan');
+
+        return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil diupdate');
     }
 
     /**
@@ -80,8 +101,11 @@ class FasilitasHotelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $data = FasilitasHotel::find($id);
+        $data->delete();
+
+        return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil dihapus');
     }
 }
