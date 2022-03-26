@@ -8,7 +8,7 @@
                     <h6>Fasilitas Hotel</h6>
                     <a href="{{ route('fasilitas_hotel.create') }}" class="btn btn-sm btn-primary">Tambah Data</a>
                 </div>
-                
+
                 {{-- <div class="alert alert-success" role="alert">
                     A simple success alert—check it out!
                 </div> --}}
@@ -22,6 +22,9 @@
                                         No</th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Foto Fasilitas</th>
+                                    <th
+                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Nama Fasilitas</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
@@ -31,11 +34,16 @@
                                 <tr>
                                     <td>{{ ++$no }}</td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{ $item->nama_fasilitas }}</p>
+                                        <img src="{{ ($data) ? url('/storage' . $item->path_img) : '' }}" class="w-25"
+                                            alt="">
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $item->nama_fasilitas_hotel }}</p>
                                     </td>
                                     <td class="align-middle" width='20%'>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{ route('fasilitas_hotel.edit', $item->id) }}" class="btn btn-primary btn-sm">
+                                            <a href="{{ route('fasilitas_hotel.edit', $item->id) }}"
+                                                class="btn btn-primary btn-sm">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                             <button type="submit" class="btn btn-danger btn-sm"
@@ -43,14 +51,15 @@
                                                 <i class="far fa-trash-alt"></i>
                                             </button>
                                         </div>
-                                        <form action="{{ route('fasilitas_hotel.delete', $item->id) }}" id="form_delete" method="post">
+                                        <form action="{{ route('fasilitas_hotel.destroy', $item->id) }}"
+                                            id="form_delete" method="post">
                                             @csrf
                                             @method('DELETE')
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
-                                    
+
                                 @endforelse
                             </tbody>
                         </table>

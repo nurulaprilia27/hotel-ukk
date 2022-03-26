@@ -8,7 +8,7 @@
                     <h6>Fasilitas Kamar</h6>
                     <a href="{{ route('fasilitas_kamar.create') }}" class="btn btn-sm btn-primary">Tambah Data</a>
                 </div>
-                
+
                 {{-- <div class="alert alert-success" role="alert">
                     A simple success alert—check it out!
                 </div> --}}
@@ -35,7 +35,8 @@
                                     </td>
                                     <td class="align-middle" width='20%'>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{ route('fasilitas_kamar.edit', $item->id) }}" class="btn btn-primary btn-sm">
+                                            <a href="{{ route('fasilitas_kamar.edit', $item->id) }}"
+                                                class="btn btn-primary btn-sm">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                             <button type="submit" class="btn btn-danger btn-sm"
@@ -43,14 +44,15 @@
                                                 <i class="far fa-trash-alt"></i>
                                             </button>
                                         </div>
-                                        <form action="{{ route('fasilitas_kamar.delete', $item->id) }}" id="form_delete" method="post">
+                                        <form action="{{ route('fasilitas_kamar.delete', $item->id) }}" id="form_delete"
+                                            method="post">
                                             @csrf
                                             @method('DELETE')
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
-                                    
+
                                 @endforelse
                             </tbody>
                         </table>

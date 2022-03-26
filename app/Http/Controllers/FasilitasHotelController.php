@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FasilitasHotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class FasilitasHotelController extends Controller
 {
@@ -29,7 +31,8 @@ class FasilitasHotelController extends Controller
             return view('admin.fasilitas_hotel.form', [
                 'data' => null
             ]);
-    } }
+        }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,9 +44,20 @@ class FasilitasHotelController extends Controller
     {
         $validated = $request->validate([
             'nama_fasilitas' => 'required',
+            'path_img' => 'required',
         ]);
 
+
+
         $data = new FasilitasHotel();
+        if ($file = $request->file('path_img')) {
+            $extensi  = $file->getClientOriginalExtension();
+            $filename = Str::slug($request->nama_fasilitas) . "_" . date('Ymdhis') . ".{$extensi}";
+            // $filename = Str::slug($filename, '_');
+
+            Storage::putFileAs('public/fasilitas_hotel', $file, $filename);
+            $data->path_img = "/fasilitas_hotel/{$filename}";
+        }
         $data->nama_fasilitas_hotel = $validated['nama_fasilitas'];
         $data->save();
 
@@ -85,9 +99,21 @@ class FasilitasHotelController extends Controller
     {
         $validated = $request->validate([
             'nama_fasilitas' => 'required',
-        ]); 
+            'path_img' => 'required',
+        ]);
         $data = FasilitasHotel::find($id);
-        $data->nama_fasilitas = $validated['nama_fasilitas'];
+        if ($file = $request->file('path_img')) {
+            if (Storage::disk('public')->exists($data->path_img)) {
+                Storage::disk('public')->delete($data->path_img);
+            }
+
+            $extensi  = $file->getClientOriginalExtension();
+            $filename = Str::slug($request->nama_fasilitas) . "_" . date('Ymdhis') . ".{$extensi}";
+
+            Storage::putFileAs('public/fasilitas_hotel', $file, $filename);
+            $data->path_img = "/fasilitas_hotel/{$filename}";
+        }
+        $data->nama_fasilitas_hotel = $validated['nama_fasilitas'];
         $data->update();
 
         // Alert::success('Berhasil!', 'Data berhasil di simpan');
@@ -101,9 +127,12 @@ class FasilitasHotelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
         $data = FasilitasHotel::find($id);
+        if (Storage::disk('public')->exists($data->path_img)) {
+            Storage::disk('public')->delete($data->path_img);
+        }
         $data->delete();
 
         return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil dihapus');
