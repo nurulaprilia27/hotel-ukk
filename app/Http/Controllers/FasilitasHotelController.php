@@ -99,7 +99,6 @@ class FasilitasHotelController extends Controller
     {
         $validated = $request->validate([
             'nama_fasilitas' => 'required',
-            'path_img' => 'required',
         ]);
         $data = FasilitasHotel::find($id);
         if ($file = $request->file('path_img')) {
