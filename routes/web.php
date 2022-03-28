@@ -4,6 +4,7 @@ use App\Http\Controllers\FasilitasHotelController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FasilitasKamarController;
+use App\Http\Controllers\KamarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +42,6 @@ Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
     Route::delete('fasilitas_kamar/{id}', [FasilitasKamarController::class, 'delete'])->name('fasilitas_kamar.delete');
 
     Route::resource('fasilitas_hotel', FasilitasHotelController::class);
+    Route::resource('kamar', KamarController::class);
 
 });
