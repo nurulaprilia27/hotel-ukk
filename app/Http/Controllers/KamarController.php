@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FasilitasHotel;
+use App\Models\Kamar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class FasilitasHotelController extends Controller
+class KamarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class FasilitasHotelController extends Controller
      */
     public function index()
     {
-        return view('admin.fasilitas_hotel.index', [
-            'data' => FasilitasHotel::get(),
+        return view('admin.kamar.index', [
+            'data' => Kamar::get(),
         ]);
     }
 
@@ -27,11 +27,10 @@ class FasilitasHotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
-            return view('admin.fasilitas_hotel.form', [
-                'data' => null
-            ]);
-        
+    {
+        return view('admin.kamar.form', [
+            'data' => null
+        ]);
     }
 
     /**
@@ -42,26 +41,31 @@ class FasilitasHotelController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $validated = $request->validate([
-            'nama_fasilitas' => 'required',
-            'path_img' => 'required',
+            'nama_kamar' => 'required',
+            'harga_kamar' => 'required',
+            'jumlah_kamar' => 'required',
+            // 'path_img' => 'required',
         ]);
 
 
 
-        $data = new FasilitasHotel();
+        $data = new Kamar();
         if ($file = $request->file('path_img')) {
             $extensi  = $file->getClientOriginalExtension();
-            $filename = Str::slug($request->nama_fasilitas) . "_" . date('Ymdhis') . ".{$extensi}";
+            $filename = Str::slug($request->nama_kamar) . "_" . date('Ymdhis') . ".{$extensi}";
             // $filename = Str::slug($filename, '_');
 
-            Storage::putFileAs('public/fasilitas_hotel', $file, $filename);
-            $data->path_img = "/fasilitas_hotel/{$filename}";
+            Storage::putFileAs('public/kamar', $file, $filename);
+            $data->path_img = "/kamar/{$filename}";
         }
-        $data->nama_fasilitas_hotel = $validated['nama_fasilitas'];
+        $data->nama_kamar = $validated['nama_kamar'];
+        $data->harga_malam = $validated['harga_kamar'];
+        $data->jumlah_kamar = $validated['jumlah_kamar'];
         $data->save();
 
-        return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil ditambah');
+        return redirect()->route('kamar.index')->with('success', 'data berhasil ditambah');
     }
 
     /**
@@ -83,8 +87,8 @@ class FasilitasHotelController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.fasilitas_hotel.form', [
-            'data' => FasilitasHotel::find($id),
+        return view('admin.kamar.form', [
+            'data' => Kamar::find($id)
         ]);
     }
 
@@ -97,27 +101,36 @@ class FasilitasHotelController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        // dd($request->all());
         $validated = $request->validate([
-            'nama_fasilitas' => 'required',
+            'nama_kamar' => 'required',
+            'harga_kamar' => 'required',
+            'jumlah_kamar' => 'required',
+            // 'path_img' => 'required',
         ]);
-        $data = FasilitasHotel::find($id);
+
+
+
+        $data = Kamar::find($id);
         if ($file = $request->file('path_img')) {
             if (Storage::disk('public')->exists($data->path_img)) {
                 Storage::disk('public')->delete($data->path_img);
             }
 
             $extensi  = $file->getClientOriginalExtension();
-            $filename = Str::slug($request->nama_fasilitas) . "_" . date('Ymdhis') . ".{$extensi}";
+            $filename = Str::slug($request->nama_kamar) . "_" . date('Ymdhis') . ".{$extensi}";
+            // $filename = Str::slug($filename, '_');
 
-            Storage::putFileAs('public/fasilitas_hotel', $file, $filename);
-            $data->path_img = "/fasilitas_hotel/{$filename}";
+            Storage::putFileAs('public/kamar', $file, $filename);
+            $data->path_img = "/kamar/{$filename}";
         }
-        $data->nama_fasilitas_hotel = $validated['nama_fasilitas'];
-        $data->update();
+        $data->nama_kamar = $validated['nama_kamar'];
+        $data->harga_malam = $validated['harga_kamar'];
+        $data->jumlah_kamar = $validated['jumlah_kamar'];
+        $data->save();
 
-        // Alert::success('Berhasil!', 'Data berhasil di simpan');
-
-        return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil diupdate');
+        return redirect()->route('kamar.index')->with('success', 'data berhasil ditambah');
     }
 
     /**
@@ -128,12 +141,12 @@ class FasilitasHotelController extends Controller
      */
     public function destroy($id)
     {
-        $data = FasilitasHotel::find($id);
+        $data = Kamar::find($id);
         if (Storage::disk('public')->exists($data->path_img)) {
             Storage::disk('public')->delete($data->path_img);
         }
         $data->delete();
 
-        return redirect()->route('fasilitas_hotel.index')->with('success', 'data berhasil dihapus');
+        return redirect()->route('kamar.index')->with('success', 'data berhasil dihapus');
     }
 }
