@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Material Kit 2 by Creative Tim
+    Hotel
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -39,9 +39,9 @@
   <!-- Navbar Transparent -->
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
-      <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip"
+      <a class="navbar-brand  text-white " href="{{ url('/home') }}" rel="tooltip"
         title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-        Material Kit 2
+        Hotel
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
         data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,13 +53,11 @@
       </button>
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
         <ul class="navbar-nav navbar-nav-hover ms-auto">
-          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+          {{-- <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
             <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
               id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
               Pages
-              <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
             </a>
             <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
               aria-labelledby="dropdownMenuPages8">
@@ -104,382 +102,27 @@
                 </a>
               </div>
             </div>
-          </li>
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-              id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-              Sections
-              <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
+          </li> --}}
+          <li class="nav-item ms-lg-auto">
+            <a class="nav-link nav-link-icon me-2" href="{{ route('reservasi.index') }}">
+              {{-- <i class="material-icons opacity-6 me-2 text-md">dashboard</i> --}}
+              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Reservasi">Reservasi</p>
             </a>
-            <ul
-              class="dropdown-menu dropdown-menu-animation dropdown-menu-end dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3"
-              aria-labelledby="dropdownMenuBlocks">
-              <div class="d-none d-lg-block">
-                <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Page Sections</h6>
-                        <span class="text-sm">See all sections</span>
-                      </div>
-                      <img src="../assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
-                    </div>
-                  </a>
-                  <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1"
-                      href="../sections/page-sections/hero-sections.html">
-                      Page Headers
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/page-sections/features.html">
-                      Features
-                    </a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Navigation</h6>
-                        <span class="text-sm">See all navigations</span>
-                      </div>
-                      <img src="../assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
-                    </div>
-                  </a>
-                  <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/navbars.html">
-                      Navbars
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/nav-tabs.html">
-                      Nav Tabs
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/pagination.html">
-                      Pagination
-                    </a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Input Areas</h6>
-                        <span class="text-sm">See all input areas</span>
-                      </div>
-                      <img src="../assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
-                    </div>
-                  </a>
-                  <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/input-areas/inputs.html">
-                      Inputs
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/input-areas/forms.html">
-                      Forms
-                    </a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Attention Catchers</h6>
-                        <span class="text-sm">See all examples</span>
-                      </div>
-                      <img src="../assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
-                    </div>
-                  </a>
-                  <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1"
-                      href="../sections/attention-catchers/alerts.html">
-                      Alerts
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1"
-                      href="../sections/attention-catchers/modals.html">
-                      Modals
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1"
-                      href="../sections/attention-catchers/tooltips-popovers.html">
-                      Tooltips & Popovers
-                    </a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Elements</h6>
-                        <span class="text-sm">See all elements</span>
-                      </div>
-                      <img src="../assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
-                    </div>
-                  </a>
-                  <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/avatars.html">
-                      Avatars
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/badges.html">
-                      Badges
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/breadcrumbs.html">
-                      Breadcrumbs
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/buttons.html">
-                      Buttons
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/dropdowns.html">
-                      Dropdowns
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/progress-bars.html">
-                      Progress Bars
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/toggles.html">
-                      Toggles
-                    </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/typography.html">
-                      Typography
-                    </a>
-                  </div>
-                </li>
-              </div>
-              <div class="row d-lg-none">
-                <div class="col-md-12">
-                  <div class="d-flex mb-2">
-                    <div class="icon h-10 me-3 d-flex mt-1">
-                      <i class="ni ni-single-copy-04 text-gradient text-primary"></i>
-                    </div>
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Page Sections</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1"
-                    href="../sections/page-sections/hero-sections.html">
-                    Page Headers
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/page-sections/features.html">
-                    Features
-                  </a>
-                  <div class="d-flex mb-2 mt-3">
-                    <div class="icon h-10 me-3 d-flex mt-1">
-                      <i class="ni ni-laptop text-gradient text-primary"></i>
-                    </div>
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Navigation</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/navbars.html">
-                    Navbars
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/nav-tabs.html">
-                    Nav Tabs
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/pagination.html">
-                    Pagination
-                  </a>
-                  <div class="d-flex mb-2 mt-3">
-                    <div class="icon h-10 me-3 d-flex mt-1">
-                      <i class="ni ni-badge text-gradient text-primary"></i>
-                    </div>
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Input Areas</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/input-areas/inputs.html">
-                    Inputs
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/input-areas/forms.html">
-                    Forms
-                  </a>
-                  <div class="d-flex mb-2 mt-3">
-                    <div class="icon h-10 me-3 d-flex mt-1">
-                      <i class="ni ni-notification-70 text-gradient text-primary"></i>
-                    </div>
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Attention Catchers</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/attention-catchers/alerts.html">
-                    Alerts
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/attention-catchers/modals.html">
-                    Modals
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1"
-                    href="../sections/attention-catchers/tooltips-popovers.html">
-                    Tooltips & Popovers
-                  </a>
-                  <div class="d-flex mb-2 mt-3">
-                    <div class="icon h-10 me-3 d-flex mt-1">
-                      <i class="ni ni-app text-gradient text-primary"></i>
-                    </div>
-                    <div class="w-100 d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6
-                          class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                          Elements</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/avatars.html">
-                    Avatars
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/badges.html">
-                    Badges
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/breadcrumbs.html">
-                    Breadcrumbs
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/buttons.html">
-                    Buttons
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/dropdowns.html">
-                    Dropdowns
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/progress-bars.html">
-                    Progress Bars
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/toggles.html">
-                    Toggles
-                  </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/elements/typography.html">
-                    Typography
-                  </a>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-              id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">article</i>
-              Docs
-              <img src="../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-animation dropdown-menu-end dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg"
-              aria-labelledby="dropdownMenuDocs">
-              <div class="d-none d-lg-block">
-                <ul class="list-group">
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a class="dropdown-item py-2 ps-3 border-radius-md"
-                      href=" https://www.creative-tim.com/learning-lab/bootstrap/overview/material-kit ">
-                      <h6
-                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                        Getting Started</h6>
-                      <span class="text-sm">All about overview, quick start, license and contents</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a class="dropdown-item py-2 ps-3 border-radius-md"
-                      href=" https://www.creative-tim.com/learning-lab/bootstrap/colors/material-kit ">
-                      <h6
-                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                        Foundation</h6>
-                      <span class="text-sm">See our colors, icons and typography</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a class="dropdown-item py-2 ps-3 border-radius-md"
-                      href=" https://www.creative-tim.com/learning-lab/bootstrap/alerts/material-kit ">
-                      <h6
-                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                        Components</h6>
-                      <span class="text-sm">Explore our collection of fully designed components</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a class="dropdown-item py-2 ps-3 border-radius-md"
-                      href=" https://www.creative-tim.com/learning-lab/bootstrap/datepicker/material-kit ">
-                      <h6
-                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                        Plugins</h6>
-                      <span class="text-sm">Check how you can integrate our plugins</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a class="dropdown-item py-2 ps-3 border-radius-md"
-                      href=" https://www.creative-tim.com/learning-lab/bootstrap/utilities/material-kit ">
-                      <h6
-                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                        Utility Classes</h6>
-                      <span class="text-sm">For those who want flexibility, use our utility classes</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="row d-lg-none">
-                <div class="col-md-12 g-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../pages/about-us.html">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                      Getting Started</h6>
-                    <span class="text-sm">All about overview, quick start, license and contents</span>
-                  </a>
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../pages/about-us.html">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                      Foundation</h6>
-                    <span class="text-sm">See our colors, icons and typography</span>
-                  </a>
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../pages/about-us.html">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                      Components</h6>
-                    <span class="text-sm">Explore our collection of fully designed components</span>
-                  </a>
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../pages/about-us.html">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                      Plugins</h6>
-                    <span class="text-sm">Check how you can integrate our plugins</span>
-                  </a>
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="../pages/about-us.html">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                      Utility Classes</h6>
-                    <span class="text-sm">For those who want flexibility, use our utility classes</span>
-                  </a>
-                </div>
-              </div>
-            </ul>
           </li>
           <li class="nav-item ms-lg-auto">
-            <a class="nav-link nav-link-icon me-2" href="https://github.com/creativetimofficial/soft-ui-design-system"
-              target="_blank">
-              <i class="fa fa-github me-1"></i>
+            <a class="nav-link nav-link-icon me-2" href="{{ route('booking.index') }}">
+              {{-- <i class="material-icons opacity-6 me-2 text-md">dashboard</i> --}}
               <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                title="Star us on Github">Github</p>
+                title="Booking">Booking</p>
             </a>
           </li>
           <li class="nav-item my-auto ms-3 ms-lg-0">
-            <a href="https://www.creative-tim.com/product/material-kit-pro"
-              class="btn btn-sm  bg-white  mb-0 me-1 mt-2 mt-md-0">Upgrade to Pro</a>
+            @if (auth()->check())
+            @if (in_array(auth()->user()->role, ['admin','resepsionis'], true ))
+            <a href="{{ route('dashboard') }}" class="btn btn-sm  bg-white  mb-0 me-1 mt-2 mt-md-0">Dashboard</a>
+            @endif
+            @endif
           </li>
         </ul>
       </div>
@@ -488,15 +131,17 @@
   <!-- End Navbar -->
   <!-- -------- START HEADER 7 w/ text and video ------- -->
   <header class="bg-gradient-dark">
-    <div class="page-header min-vh-75" style="background-image: url('../assets/img/bg9.jpg');">
+    <div class="page-header min-vh-75" style="background-image: url({{ asset('landing/assets/img/bg9.jpg') }});">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
-            <h1 class="text-white">Work with an amazing design</h1>
+            <h1 class="text-white">Reservasi Kamar Hotel Online</h1>
             <p class="lead mb-4 text-white opacity-8">We’re constantly trying to express ourselves and actualize our
               dreams. If you have the opportunity to play this game</p>
-            <button type="submit" class="btn bg-white text-dark">Create Account</button>
+            @if (!auth()->check())
+            <a href="{{ route('login') }}" class="btn bg-white text-dark">Pesan Kamar</a>
+            @endif
             <h6 class="text-white mb-2 mt-5">Find us on</h6>
             <div class="d-flex justify-content-center">
               <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
@@ -509,73 +154,11 @@
       </div>
     </div>
   </header>
+  @yield('content')
   <!-- -------- END HEADER 7 w/ text and video ------- -->
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <!-- Section with four info areas left & one card right with image and waves -->
-    <section class="py-7">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="row justify-content-start">
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">public</i>
-                  <h5>Fully integrated</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">payments</i>
-                  <h5>Payments functionality</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-start mt-4">
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">apps</i>
-                  <h5>Prebuilt components</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">3p</i>
-                  <h5>Improved platform</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
-            <div class="card">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                    alt="img-colored-shadow" class="img-fluid border-radius-lg">
-                </a>
-              </div>
-              <div class="card-body text-center">
-                <h5 class="font-weight-normal">
-                  <a href="javascript:;">Get insights on Search</a>
-                </h5>
-                <p class="mb-0">
-                  Website visitors today demand a frictionless user expericence — especially when using search. Because
-                  of the hight standards.
-                </p>
-                <button type="button" class="btn bg-gradient-info btn-sm mb-0 mt-3">Find out more</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END Section with four info areas left & one card right with image and waves -->
+  {{-- <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
     <!-- -------- START Features w/ pattern background & stats & rocket -------- -->
-    <section class="pb-5 position-relative bg-gradient-dark mx-n3">
+    <section class="pb-5 position-relative mx-n3">
       <div class="container">
         <div class="row">
           <div class="col-md-8 text-start mb-5 mt-5">
@@ -674,88 +257,15 @@
         </div>
       </div>
     </section>
-    <!-- -------- END Features w/ pattern background & stats & rocket -------- -->
-    <section class="pt-4 pb-6" id="count-stats">
-      <div class="container">
-        <div class="row mb-7">
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="../assets/img/logos/gray-logos/logo-coinbase.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="../assets/img/logos/gray-logos/logo-nasa.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="../assets/img/logos/gray-logos/logo-netflix.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="../assets/img/logos/gray-logos/logo-pinterest.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="../assets/img/logos/gray-logos/logo-spotify.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="../assets/img/logos/gray-logos/logo-vodafone.svg" alt="logo">
-          </div>
-        </div>
-        <div class="row justify-content-center text-center">
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info" id="state1" countTo="5234">0</h1>
-            <h5>Projects</h5>
-            <p>Of “high-performing” level are led by a certified project manager</p>
-          </div>
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state2" countTo="3400">0</span>+</h1>
-            <h5>Hours</h5>
-            <p>That meets quality standards required by our users</p>
-          </div>
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state3" countTo="24">0</span>/7</h1>
-            <h5>Support</h5>
-            <p>Actively engage team members that finishes on time</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- -------- START PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
-    <section class="my-5 pt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 m-auto">
-            <h4>Be the first to see the news</h4>
-            <p class="mb-4">
-              Your company may not be in the software business,
-              but eventually, a software company will be in your business.
-            </p>
-            <div class="row">
-              <div class="col-8">
-                <div class="input-group input-group-outline">
-                  <label class="form-label">Email Here...</label>
-                  <input type="text" class="form-control mb-sm-0">
-                </div>
-              </div>
-              <div class="col-4 ps-0">
-                <button type="button"
-                  class="btn bg-gradient-info mb-0 h-100 position-relative z-index-2">Subscribe</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-5 ms-auto">
-            <div class="position-relative">
-              <img class="max-width-50 w-100 position-relative z-index-2" src="../assets/img/macbook.png" alt="image">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- -------- END PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
-  </div>
+  </div> --}}
   <footer class="footer pt-5 mt-5">
     <div class="container">
       <div class=" row">
         <div class="col-md-3 mb-4 ms-auto">
           <div>
             <a href="https://www.creative-tim.com/product/material-kit">
-              <img src="../assets/img/logo-ct-dark.png" class="mb-3 footer-logo" alt="main_logo">
+              {{-- <img src="../assets/img/logo-ct-dark.png" class="mb-3 footer-logo" alt="main_logo"> --}}
             </a>
             <h6 class="font-weight-bolder mb-4">Material Kit 2</h6>
           </div>

@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 use App\Http\Controllers\FasilitasHotelController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FasilitasKamarController;
+use App\Http\Controllers\Tamu\ReservasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +18,23 @@ use App\Http\Controllers\FasilitasKamarController;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/redirectAuthenticatedUsers');
+});
+
+Route::get('/redirectAuthenticatedUsers', [RedirectAuthenticatedUsersController::class, 'home']);
+
 
 Route::get('/home', function () {
     return view('landingpage.pages.home');
-});
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+})->name('home');
+
+
 
 Auth::routes();
 
 
-Route::group(['middleware' => ['auth', 'CekRole:admin,resepsionis,tamu']], function () {
+Route::group(['middleware' => ['auth', 'CekRole:admin,resepsionis']], function () {
     // dashboard
     Route::view('dashboard', 'admin.dashboard')->name('dashboard');
 });
@@ -41,5 +48,10 @@ Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
     Route::delete('fasilitas_kamar/{id}', [FasilitasKamarController::class, 'delete'])->name('fasilitas_kamar.delete');
 
     Route::resource('fasilitas_hotel', FasilitasHotelController::class);
+});
 
+Route::group(['middleware' => ['auth', 'CekRole:tamu']], function () {
+    Route::get('reservasi', [ReservasiController::class, 'index'])->name('reservasi.index');
+
+    Route::get('booking', [ReservasiController::class, 'index'])->name('booking.index');
 });
