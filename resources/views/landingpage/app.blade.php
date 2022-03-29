@@ -40,7 +40,7 @@
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
       <a class="navbar-brand  text-white " href="{{ url('/home') }}" rel="tooltip"
-        title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+        title="Designed and Coded by Creative Tim" data-placement="bottom">
         Hotel
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -122,6 +122,14 @@
             @if (in_array(auth()->user()->role, ['admin','resepsionis'], true ))
             <a href="{{ route('dashboard') }}" class="btn btn-sm  bg-white  mb-0 me-1 mt-2 mt-md-0">Dashboard</a>
             @endif
+            <a class="btn btn-sm  bg-white  mb-0 me-1 mt-2 mt-md-0" style="cursor: pointer"
+              onclick="document.getElementById('form_logout').submit();"><i class="fa fa-arrow-right"
+                aria-hidden="true"></i></a>
+
+
+            <form action="{{route('logout')}}" method="POST" id="form_logout">
+              @csrf
+            </form>
             @endif
           </li>
         </ul>

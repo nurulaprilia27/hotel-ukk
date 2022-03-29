@@ -3,8 +3,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
-            target="_blank">
+        <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
             <img src="{{ asset('admin/assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
             {{-- <span class="ms-1 font-weight-bold">Soft UI Dashboard</span> --}}
         </a>
@@ -13,8 +12,8 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link {{ Route::is('dashboard.index') ? 'active' : '' }}" href="{{ route('dashboard') }}">
-                <a class="nav-link  active" href="{{ route('dashboard') }}"><div
+                <a class="nav-link {{ Route::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
+                    <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -39,7 +38,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::is(['fasilitas_kamar.index', 'fasilitas_kamar.create', 'fasilitas_kamar.edit']) ? 'active' : '' }}" href="{{ route('fasilitas_kamar.index') }}">
+                <a class="nav-link {{ Route::is(['fasilitas_kamar.index', 'fasilitas_kamar.create', 'fasilitas_kamar.edit']) ? 'active' : '' }}"
+                    href="{{ route('fasilitas_kamar.index') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -65,7 +65,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::is(['kamar.index', 'kamar.create'. 'kamar.edit']) ? 'active' : '' }}" href="{{ route('kamar.index') }}">
+                <a class="nav-link {{ Route::is(['kamar.index', 'kamar.create'. 'kamar.edit']) ? 'active' : '' }}"
+                    href="{{ route('kamar.index') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -93,7 +94,8 @@
 
 
             <li class="nav-item">
-                <a class="nav-link {{ Route::is(['fasilitas_hotel.index', 'fasilitas_hotel.create', 'fasilitas_hotel.edit']) ? 'active' : '' }}" href="{{ route('fasilitas_hotel.index') }}">
+                <a class="nav-link {{ Route::is(['fasilitas_hotel.index', 'fasilitas_hotel.create', 'fasilitas_hotel.edit']) ? 'active' : '' }}"
+                    href="{{ route('fasilitas_hotel.index') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"

@@ -14,100 +14,36 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($kamars as $item)
                 <div class="col-lg-6 col-12">
                     <div class="card card-profile mt-4">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                        <div class="row p-3">
+                            <div class="col-lg-12 col-md-6 col-12 mt-n5">
                                 <a href="javascript:;">
-                                    <div class="p-3 pe-md-0">
-                                        <img class="w-100 border-radius-md shadow-lg" src="../assets/img/team-5.jpg"
-                                            alt="image">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                <div class="card-body ps-lg-0">
-                                    <h5 class="mb-0">Emma Roberts</h5>
-                                    <h6 class="text-info">UI Designer</h6>
-                                    <p class="mb-0">Artist is a term applied to a person who engages in an activity
-                                        deemed to be an art.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="card card-profile mt-lg-4 mt-5">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n5">
-                                <a href="javascript:;">
-                                    <div class="p-3 pe-md-0">
-                                        <img class="w-100 border-radius-md shadow-lg" src="../assets/img/bruce-mars.jpg"
-                                            alt="image">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                <div class="card-body ps-lg-0">
-                                    <h5 class="mb-0">William Pearce</h5>
-                                    <h6 class="text-info">Boss</h6>
-                                    <p class="mb-0">Artist is a term applied to a person who engages in an activity
-                                        deemed to be an art.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-6 col-12">
-                    <div class="card card-profile mt-4 z-index-2">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n5">
-                                <a href="javascript:;">
-                                    <div class="p-3 pe-md-0">
+                                    <div class="pe-md-0">
                                         <img class="w-100 border-radius-md shadow-lg"
-                                            src="../assets/img/ivana-squares.jpg" alt="image">
+                                            src="{{ url('/storage' . $item->path_img) }}" alt="image">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-lg-8 col-md-6 col-12 my-auto">
                                 <div class="card-body ps-lg-0">
-                                    <h5 class="mb-0">Ivana Flow</h5>
-                                    <h6 class="text-info">Athlete</h6>
-                                    <p class="mb-0">Artist is a term applied to a person who engages in an activity
-                                        deemed to be an art.
+                                    <h5 class="mb-0">{{ $item->nama_kamar }}</h5>
+                                    <h6 class="text-info">Rp . {{ number_format($item->harga_malam) }}</h6>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Disini Fasilitas kamar</li>
+                                        <li class="list-group-item">Disini Fasilitas kamar</li>
+                                    </ul>
                                     </p>
                                 </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 py-3 mt-auto ms-auto">
+                                <button type="button" class="btn btn-primary">Lihat</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12">
-                    <div class="card card-profile mt-lg-4 mt-5 z-index-2">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n5">
-                                <a href="javascript:;">
-                                    <div class="p-3 pe-md-0">
-                                        <img class="w-100 border-radius-md shadow-lg"
-                                            src="../assets/img/ivana-square.jpg" alt="image">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                <div class="card-body ps-lg-0">
-                                    <h5 class="mb-0">Marquez Garcia</h5>
-                                    <h6 class="text-info">JS Developer</h6>
-                                    <p class="mb-0">Artist is a term applied to a person who engages in an activity
-                                        deemed to be an art.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
