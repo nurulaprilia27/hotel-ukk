@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipeKamarsTable extends Migration
+class AddKamarIdToFasilitasKamarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateTipeKamarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipe_kamars', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_tipe');
-            $table->timestamps();
+        Schema::table('fasilitas_kamars', function (Blueprint $table) {
+            $table->foreignId('kamar_id')->after('id')->unsigned()->onDelete('cascade');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateTipeKamarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipe_kamars');
+        Schema::table('fasilitas_kamars', function (Blueprint $table) {
+            $table->dropColumn('kamar_id');
+        });
     }
 }

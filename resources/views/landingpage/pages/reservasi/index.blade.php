@@ -31,8 +31,11 @@
                                     <h5 class="mb-0">{{ $item->nama_kamar }}</h5>
                                     <h6 class="text-info">Rp . {{ number_format($item->harga_malam) }}</h6>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Disini Fasilitas kamar</li>
-                                        <li class="list-group-item">Disini Fasilitas kamar</li>
+                                        @foreach ($item->fasilitas_kamars as $item)
+
+                                        <li class="list-group-item"><i class="fa fa-arrow-circle-o-right text-sm me-2"
+                                                aria-hidden="true"></i>{{ $item->nama_fasilitas }}</li>
+                                        @endforeach
                                     </ul>
                                     </p>
                                 </div>

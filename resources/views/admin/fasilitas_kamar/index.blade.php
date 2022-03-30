@@ -22,6 +22,9 @@
                                         No</th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Nama Kamar</th>
+                                    <th
+                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Nama Fasilitas</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
@@ -30,6 +33,9 @@
                                 @forelse ($data as $no => $item)
                                 <tr>
                                     <td>{{ ++$no }}</td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $item->kamar->nama_kamar }}</p>
+                                    </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">{{ $item->nama_fasilitas }}</p>
                                     </td>

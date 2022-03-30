@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\FasilitasKamar;
+use App\Models\Kamar;
+use App\Models\TipeKamar;
 use Illuminate\Http\Request;
 // use RealRashid\SweetAlert\Facades\Alert;
 use SweetAlert;
@@ -17,7 +19,7 @@ class FasilitasKamarController extends Controller
     public function index()
     {
         return view('admin.fasilitas_kamar.index', [
-            'data' => FasilitasKamar::get(),
+            'data' => FasilitasKamar::orderBy('kamar_id')->get(),
         ]);
     }
 
@@ -29,7 +31,8 @@ class FasilitasKamarController extends Controller
     public function create()
     {
         return view('admin.fasilitas_kamar.form', [
-            'data' => null
+            'data' => null,
+            'kamar' => Kamar::get()
         ]);
         //
     }
@@ -42,13 +45,16 @@ class FasilitasKamarController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $validated = $request->validate([
             'nama_fasilitas' => 'required',
+            'kamar' => 'required',
         ]);
+        // dd($validated);
 
         $data = new FasilitasKamar();
         $data->nama_fasilitas = $validated['nama_fasilitas'];
+        $data->kamar()->associate((int)$validated['kamar']);
         $data->save();
 
         return redirect()->route('fasilitas_kamar.index')->with('success', 'data berhasil ditambah');
@@ -79,6 +85,7 @@ class FasilitasKamarController extends Controller
     {
         return view('admin.fasilitas_kamar.form', [
             'data' => FasilitasKamar::find($id),
+            'kamar' => Kamar::get()
         ]);
 
         // $data ? 'ini ada data' : 'ini enggak'
@@ -87,7 +94,7 @@ class FasilitasKamarController extends Controller
         // } else {
         //     'ini enggak';
         // }
-        
+
     }
 
     /**
@@ -102,12 +109,14 @@ class FasilitasKamarController extends Controller
         // dd($request->all());
         $validated = $request->validate([
             'nama_fasilitas' => 'required',
+            'kamar' => 'required',
         ]);
 
         $data = FasilitasKamar::find($id);
         $data->nama_fasilitas = $validated['nama_fasilitas'];
+        $data->kamar()->associate((int)$validated['kamar']);
         $data->update();
-        
+
         // Alert::success('Berhasil!', 'Data berhasil di simpan');
 
         return redirect()->route('fasilitas_kamar.index')->with('success', 'data berhasil diupdate');
