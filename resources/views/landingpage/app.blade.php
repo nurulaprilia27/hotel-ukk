@@ -148,7 +148,7 @@
             <p class="lead mb-4 text-white opacity-8">We’re constantly trying to express ourselves and actualize our
               dreams. If you have the opportunity to play this game</p>
             @if (!auth()->check())
-            <a href="{{ route('login') }}" class="btn bg-white text-dark">Pesan Kamar</a>
+            <a href="{{ route('login') }}" class="btn bg-white text-dark">login</a>
             @endif
             <h6 class="text-white mb-2 mt-5">Find us on</h6>
             <div class="d-flex justify-content-center">
