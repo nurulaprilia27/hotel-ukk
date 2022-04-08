@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ ++$no }}</td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{ $item->kamar->nama_kamar }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $item->kamar ? $item->kamar->nama_kamar : '';  }}</p>
                                     </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">{{ $item->nama_fasilitas }}</p>

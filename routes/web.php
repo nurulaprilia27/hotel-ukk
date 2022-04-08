@@ -56,6 +56,7 @@ Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'CekRole:tamu']], function () {
     Route::get('reservasi', [ReservasiController::class, 'index'])->name('reservasi.index');
+    Route::get('reservasi/{id}', [ReservasiController::class, 'show'])->name('reservasi.show');
 
     Route::get('booking', [ReservasiController::class, 'index'])->name('booking.index');
 });

@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 py-3 mt-auto ms-auto">
-                                <button type="button" class="btn btn-primary">Lihat</button>
+                                <a href="{{ route('reservasi.show', $item->id) }}" class="btn btn-primary">Lihat</a>
                             </div>
                         </div>
                     </div>
