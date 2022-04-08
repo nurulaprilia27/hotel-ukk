@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
 Route::group(['middleware' => ['auth', 'CekRole:tamu']], function () {
     Route::get('reservasi', [ReservasiController::class, 'index'])->name('reservasi.index');
     Route::get('reservasi/{id}', [ReservasiController::class, 'show'])->name('reservasi.show');
+    Route::post('reservasi/{id}', [ReservasiController::class, 'store'])->name('reservasi.store');
+    Route::get('reservasi/transaksi/{id}', [ReservasiController::class, 'cetakReservasi'])->name('reservasi.cetak');
 
     Route::get('booking', [ReservasiController::class, 'index'])->name('booking.index');
 });

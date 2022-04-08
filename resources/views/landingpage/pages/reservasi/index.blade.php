@@ -31,17 +31,21 @@
                                     <h5 class="mb-0">{{ $item->nama_kamar }}</h5>
                                     <h6 class="text-info">Rp . {{ number_format($item->harga_malam) }}</h6>
                                     <ul class="list-group list-group-flush">
-                                        @foreach ($item->fasilitas_kamars as $item)
+                                        @forelse ($item->fasilitas_kamars as $fasilitas)
 
                                         <li class="list-group-item"><i class="fa fa-arrow-circle-o-right text-sm me-2"
-                                                aria-hidden="true"></i>{{ $item->nama_fasilitas }}</li>
-                                        @endforeach
+                                                aria-hidden="true"></i>{{ $fasilitas->nama_fasilitas }}</li>
+
+                                        @empty
+                                        <li class="list-group-item"><i class="fa fa-arrow-circle-o-right text-sm me-2"
+                                                aria-hidden="true"></i>Kamar Saja</li>
+                                        @endforelse
                                     </ul>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 py-3 mt-auto ms-auto">
-                                <a href="{{ route('reservasi.show', $item->id) }}" class="btn btn-primary">Lihat</a>
+                                <a href="{{ url('reservasi/' . $item->id) }}" class="btn btn-primary">Lihat</a>
                             </div>
                         </div>
                     </div>

@@ -6,8 +6,6 @@ use App\Models\FasilitasKamar;
 use App\Models\Kamar;
 use App\Models\TipeKamar;
 use Illuminate\Http\Request;
-// use RealRashid\SweetAlert\Facades\Alert;
-use SweetAlert;
 
 class FasilitasKamarController extends Controller
 {
