@@ -57,14 +57,23 @@ class ReservasiController extends Controller
         $transaksi = new Transaksi();
         $transaksi->kode = "BOOK-" . time() . Str::upper(Str::random(5));
         $transaksi->user()->associate(auth()->id());
-        $transaksi->tipe_kamar()->associate($id);
+        $transaksi->tipe_kamar()->associate($kamar->id);
         $transaksi->tanggal_checkin = $req->tanggal_checkin;
         $transaksi->tanggal_checkout = $req->tanggal_checkout;
         $transaksi->jumlah_kamar = $kamars;
         $transaksi->jumlah_malam = $jumlah_malam;
         $transaksi->total_biaya = $total_biaya;
 
+        // count jumlah kamar
+        $countKamar = $kamar->jumlah_kamar - $kamars;
+
+        $kamar->update([
+            'jumlah_kamar' => $countKamar,
+        ]);
+        // dd($kamar->jumlah_kamar);
         $transaksi->save();
+
+
 
         return redirect()->route('reservasi.cetak', $transaksi->id);
     }
