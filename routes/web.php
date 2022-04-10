@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FasilitasKamarController;
 use App\Http\Controllers\Tamu\ReservasiController;
 use App\Http\Controllers\KamarController;
+use App\Http\Controllers\Tamu\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,5 +61,5 @@ Route::group(['middleware' => ['auth', 'CekRole:tamu']], function () {
     Route::post('reservasi/{id}', [ReservasiController::class, 'store'])->name('reservasi.store');
     Route::get('reservasi/transaksi/{id}', [ReservasiController::class, 'cetakReservasi'])->name('reservasi.cetak');
 
-    Route::get('booking', [ReservasiController::class, 'index'])->name('booking.index');
+    Route::get('booking', [BookingController::class, 'index'])->name('booking.index');
 });

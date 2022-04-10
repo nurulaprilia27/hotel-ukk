@@ -4,15 +4,7 @@
 <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
     <!-- -------- START Features w/ pattern background & stats & rocket -------- -->
     <section class="pb-5 position-relative mx-n3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 text-start mb-5 mt-5">
-                    <h3 class="text-white z-index-1 position-relative">The Executive Team</h3>
-                    <p class="text-white opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t
-                        able to get
-                        good at. That’s my skill.</p>
-                </div>
-            </div>
+        <div class="container p-5">
             <div class="row">
                 @foreach ($kamars as $item)
                 <div class="col-lg-6 col-12">
