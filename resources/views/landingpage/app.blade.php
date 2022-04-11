@@ -117,6 +117,13 @@
                 title="Booking">Booking</p>
             </a>
           </li>
+          <li class="nav-item ms-lg-auto">
+            <a class="nav-link nav-link-icon me-2" href="{{ route('fasilitas.index') }}">
+              {{-- <i class="material-icons opacity-6 me-2 text-md">dashboard</i> --}}
+              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Booking">Fasilitas</p>
+            </a>
+          </li>
           <li class="nav-item my-auto ms-3 ms-lg-0">
             @if (auth()->check())
             @if (in_array(auth()->user()->role, ['admin','resepsionis'], true ))

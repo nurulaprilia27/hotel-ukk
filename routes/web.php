@@ -9,6 +9,7 @@ use App\Http\Controllers\Tamu\ReservasiController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\Resepsionis\ReservasiController as ResepsionisReservasiController;
 use App\Http\Controllers\Tamu\BookingController;
+use App\Http\Controllers\Tamu\FasilitasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,4 +70,5 @@ Route::group(['middleware' => ['auth', 'CekRole:tamu']], function () {
     Route::post('reservasi/{id}', [ReservasiController::class, 'store'])->name('reservasi.store');
 
     Route::get('booking', [BookingController::class, 'index'])->name('booking.index');
+    Route::get('fasilitas', [FasilitasController::class, 'index'])->name('fasilitas.index');
 });
