@@ -24,7 +24,8 @@
                             <td>{{ $item->kode }}</td>
                             <td>{{ $item->tanggal_checkin }}</td>
                             <td>{{ $item->tanggal_checkout }}</td>
-                            <td>{{ $item->tipe_kamar->nama_kamar }}</td>
+                            <td>{{ $item->tipe_kamar ?
+                                $item->tipe_kamar->nama_kamar : ''; }}</td>
                             <td><a class="btn btn-primary btn-sm"
                                     href="{{ route('reservasi.cetak', $item->id) }}">Lihat</a></td>
                         </tr>

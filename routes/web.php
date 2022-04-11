@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FasilitasKamarController;
 use App\Http\Controllers\Tamu\ReservasiController;
 use App\Http\Controllers\KamarController;
+use App\Http\Controllers\Resepsionis\ReservasiController as ResepsionisReservasiController;
 use App\Http\Controllers\Tamu\BookingController;
 
 /*
@@ -55,11 +56,17 @@ Route::group(['middleware' => ['auth', 'CekRole:admin']], function () {
     Route::get('booking', [ReservasiController::class, 'index'])->name('booking.index');
 });
 
+Route::group(['middleware' => ['auth', 'CekRole:resepsionis']], function () {
+    Route::get('resepsionis/reservasi', [ResepsionisReservasiController::class, 'index'])->name('resepsionis.reservasi.index');
+});
+
+Route::group(['middleware' => ['auth', 'CekRole:tamu,resepsionis']], function () {
+    Route::get('reservasi/transaksi/{id}', [ReservasiController::class, 'cetakReservasi'])->name('reservasi.cetak');
+});
 Route::group(['middleware' => ['auth', 'CekRole:tamu']], function () {
     Route::get('reservasi', [ReservasiController::class, 'index'])->name('reservasi.index');
     Route::get('reservasi/{id}', [ReservasiController::class, 'show'])->name('reservasi.show');
     Route::post('reservasi/{id}', [ReservasiController::class, 'store'])->name('reservasi.store');
-    Route::get('reservasi/transaksi/{id}', [ReservasiController::class, 'cetakReservasi'])->name('reservasi.cetak');
 
     Route::get('booking', [BookingController::class, 'index'])->name('booking.index');
 });
